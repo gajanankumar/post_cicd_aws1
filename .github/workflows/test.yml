@@ -1,0 +1,32 @@
+name: Build and Test
+
+on:
+  push:
+    branches:
+      - main  # Change to your main branch
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v2
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.x  # Change to your Python version
+
+      - name: Install Dependencies
+        run: pip install -r requirements.txt
+        working-directory: /path/to/your/project
+
+      - name: Run Tests
+        run: |
+          # Add the commands to run your tests here
+          # For example, if you're using pytest:
+          # pip install -r requirements.txt
+          # pytest
+          # Adjust the testing commands to match your project's setup
+        working-directory: /path/to/your/project
