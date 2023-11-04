@@ -17,13 +17,19 @@ jobs:
         uses: actions/setup-python@v2
         with:
           python-version: 3.x  # Change to your Python version
-
+        
       - name: Install Dependencies
-        run: pip install -r requirements.txt
-        working-directory: /path/to/your/project
+        run: | 
+              cd ..
+              cd ..
+              pip install -r requirements.txt
+        
+        
 
       - name: Run Tests
         run: |
+           cd app1
+           python manage.py test
           # Add the commands to run your tests here
           # For example, if you're using pytest:
           # pip install -r requirements.txt
