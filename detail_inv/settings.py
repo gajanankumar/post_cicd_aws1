@@ -89,13 +89,8 @@ DATABASES = {
         
     },
     'test': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'test',
-        'PORT' : 3306,
-        'USER' : 'root',
-        'PASSWORD' : 'kale',
-        'HOST':'localhost'
-        
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': ':memory:',
     }
     
 }
