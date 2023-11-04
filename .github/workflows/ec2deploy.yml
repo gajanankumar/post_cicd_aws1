@@ -23,7 +23,10 @@ jobs:
       - name: make migration
         run: python manage.py makemigrations
              python manage.py migrate
-             python manage.py migrate --database=test
+             
+      - name: Apply Migrations to a Specific Database
+        run: python manage.py migrate --database=test
+
 
       - name: Run tests
         run: python manage.py test --keepdb
