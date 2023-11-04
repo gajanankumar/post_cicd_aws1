@@ -50,6 +50,7 @@ jobs:
             # Run Django database migrations
       
             python3 manage.py migrate 
+            
             python3 manage.py runserver 0.0.0.0:8006
 
             # Collect static files (if you're serving them via Django)
