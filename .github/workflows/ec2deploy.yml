@@ -21,7 +21,8 @@ jobs:
         run: pip install -r requirements.txt
         working-directory: .
       - name: Run tests
-        run: python manage.py test
+        run: python manage.py test --keepdb
+
 
       - name: SSH into EC2
         uses: appleboy/ssh-action@master
