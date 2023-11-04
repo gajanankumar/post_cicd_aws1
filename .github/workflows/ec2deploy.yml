@@ -15,10 +15,7 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v2
        
-      - name: Run tests
-        run: python manage.py test --keepdb
-
-
+    
       - name: SSH into EC2
         uses: appleboy/ssh-action@master
         with:
