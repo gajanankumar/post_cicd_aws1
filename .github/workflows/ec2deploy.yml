@@ -35,7 +35,7 @@ jobs:
             git init 
 
             # Pull the latest code from the Git repository
-            git pull https://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github.com/gajanankumar/post_cicd_aws1.git
+            git pull https://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@github.com/gajanankumar/post_cicd_aws1.git
 
             # Activate your virtual environment
             #/home/ubuntu/postdjdeploy/myenv/bin/python manage.py runserver 0.0.0.0:8000
