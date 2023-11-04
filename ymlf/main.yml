@@ -1,0 +1,52 @@
+name: CI/CD for Django with Docker and AWS EC2
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.x
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Build Docker image
+        run: |
+          docker build -t invoice_app1 .
+
+      - name: Run tests
+        run: |
+          python manage.py test
+
+      - name: Push Docker image to Docker Hub (or your Docker registry)
+        run: |
+          # Log in to your Docker registry
+          echo ${{ secrets.DOCKER_PASSWORD }} | docker login -u ${{ secrets.DOCKER_USERNAME }} --password-stdin
+
+          # Tag the Docker image
+          docker image tag invoice_app1:latest kalegajanan/cicd:1.0 
+
+          # Push the Docker image
+          docker push kalegajanan/cicd:1.0 
+
+      - name: Deploy to production
+        if: success()
+        run: |
+          echo "${{ secrets.AWS_SSH_KEY }}" > aws-ssh-key.pem
+          chmod 600 aws-ssh-key.pem
+
+          # SSH into your AWS EC2 instance
+          ssh -i aws-ssh-key.pem ec2-user@your-ec2-instance-ip "cd /path/to/app && docker-compose down && docker-compose pull && docker-compose up -d"

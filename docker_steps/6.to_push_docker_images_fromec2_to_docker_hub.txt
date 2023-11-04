@@ -1,0 +1,70 @@
+ ## from terminal
+docker login
+
+user and pw
+kalegajanan946@gmail.com
+
+docker@12345
+
+docker images
+
+REPOSITORY    TAG       IMAGE ID       CREATED       SIZE
+invoice_app   latest    5b4c8c6ab0ba   2 hours ago   1.24GB
+mysql         8.0.15    7bb2586065cd   4 years ago   477MB
+
+docker image tag invoice_app:latest kalegajanan/invoice:1.0  (remote repo)
+
+ubuntu@ip-172-31-29-15:~/docker_invoice1$ docker push kalegajanan/invoice:1.0
+
+docker images
+
+REPOSITORY            TAG       IMAGE ID       CREATED       SIZE
+kalegajanan/invoice   1.0       5b4c8c6ab0ba   2 hours ago   1.24GB
+invoice_app           latest    5b4c8c6ab0ba   2 hours ago   1.24GB
+mysql                 8.0.15    7bb2586065cd   4 years ago   477MB
+
+
+
+docker image tag student kalegajanan/pythonapps:1.1
+ 
+docker image push kalegajanan/pythonapps:1.1
+
+docker image tag mysql:8.0.15  kalegajanan/mysql:8.0.15 
+
+docker push kalegajanan/mysql:8.0.15
+
+
+# docker playground run docker images
+ 
+docker pull kalegajanan/mysql:8.0.15
+
+docker pull kalegajanan/invoice:1.0
+
+docker run -d -p 6666:3306 --name=docker-mysql --env="MYSQL_ROOT_PASSWORD=kale" --env="MYSQL_DATABASE=inv"  kalegajanan/mysql:8.0.15 --default-authentication-plugin=mysql_native_password
+
+docker run -d -t --name=invoice-app --link docker-mysql:mysql -p 10555:8000 kalegajanan/invoice:1.0
+
+docker exec -it invoice-app python manage.py migrate
+
+
+
+docker pull kalegajanan/pythonapps:1.1
+docker images
+
+
+
+
+
+docker run -d -p 6666:3306 --name=docker-mysql --env="MYSQL_ROOT_PASSWORD=kale" --env="MYSQL_DATABASE=file"  kalegajanan/mysql:8.0
+
+docker run -d -p 6666:3306 --name=docker-mysql --env="MYSQL_ROOT_PASSWORD=kale" --env="MYSQL_DATABASE=file"  kalegajanan/mysql:8.0.15 --default-authentication-plugin=mysql_native_password
+
+docker run -d -p 6666:3306 --name=docker-mysql --env="MYSQL_ROOT_PASSWORD=kale" --env="MYSQL_DATABASE=file"  kalegajanan/mysql:8.0.15 --default-authentication-plugin=mysql_native_password
+
+docker run -d -t --name=student-app --link docker-mysql:mysql -p 10555:8000 kalegajanan/pythonapps:1.1
+
+docker exec -it student python manage.py migrate
+
+
+docker rm -f $(docker ps -aq) # removes all containers
+docker rm -f cid #remove specific container

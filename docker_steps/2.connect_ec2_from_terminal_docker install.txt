@@ -1,0 +1,30 @@
+# login into ec2 machine
+
+ssh -i "your-key.pem" ec2-user@your-instance-ip
+
+ssh -i dockerec2.pem ubuntu@34.215.122.50 # at .pem key location 
+
+ssh -i "dockerec2.pem" ubuntu@ec2-34-215-122-50.us-west-2.compute.amazonaws.com #Direct connect 
+
+# after login ec2 instance and install docker
+
+sudo apt update # update packages
+
+# docker install
+
+curl -fsSL https://get.docker.com -o install-docker.sh
+
+sudo sh install-docker.sh
+
+# afer installing docker adding docker user 
+
+sudo usermod -aG docker ubuntu
+
+# after adding user
+logout login 
+
+
+
+
+
+

@@ -1,0 +1,80 @@
+#open terminal
+
+# to add user and email configure
+
+git config --global user.name "gaju"
+
+git config --global user.email "kalegajanan946@gmail.com"
+
+# for communicate to github from windows terminal
+
+# for key generation windows
+
+ssh-keygen
+
+# copy public key and paste in github settings-ssh and -GPG key-new ssh key and paste there.
+
+
+# to clone first time use ssh
+git clone git@github.com:kalegajanan/docker_student.git
+
+# to add remote repo
+
+git remote add origin git@github.com:kalegajanan/docker_student.git
+
+# git add .
+
+git commit -m "m"
+
+git push -u origin 
+
+
+# to intialize local repo and push to remote repo steps
+
+echo "# docker121" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git branch -M main
+git remote add origin git@github.com:kalegajanan/docker121.git
+git push -u origin main/master
+
+git@github.com:kalegajanan/docker_post_app_steps.git
+
+git remote add origin https://github.com/kalegajanan/docker_post_app_steps_prv_1.git
+
+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
+
+git clone https://github.com/kalegajanan/docker_post_app_steps_prv_1.git
+Username: kalegajanan
+Password: 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
+
+
+curl -u "kalegajanan946@gmail.com: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" https://github.com/kalegajanan/docker_post_app_steps_prv_1.git
+
+git remote set-url origin https://kalegajanan946@gmail.com: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 https://github.com/kalegajanan/docker_post_app_steps_prv_1.git
+
+git remote set-url origin https://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@github.com/kalegajanan/docker_post_app_steps_prv_1
+
+https://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
+@github.com/kalegajanan/docker_post_app_steps_prv_1.git
+
+git remote add origin https://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@github.com/kalegajanan/gk.git
+
+git clone https://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@github.com/kalegajanan/gk.git
+
+git clone https://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@github.com/kalegajanan/gk.git
+
+
+# For see the git logs
+
+git log
+
+git log --oneline
+
+# For goto previous commit or any commit
+
+git reset --hard <commit_id>
+
+
+

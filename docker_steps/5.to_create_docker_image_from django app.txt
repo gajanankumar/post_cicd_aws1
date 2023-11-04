@@ -1,0 +1,76 @@
+# add Docker file in step 3 in django app main directory
+
+# push to github django app
+
+# git pull django app from github to ec2 machine
+
+# ## To build the app image and run the container
+
+docker build -f Dockerfile -t invoice_apps .
+
+# to run app container individually
+
+docker run -t --name=invoice -d -p 10500:8000 invoice_app
+
+## For run the mysql container
+
+docker run -d -p 6666:3306 --name=docker-mysql --env="MYSQL_ROOT_PASSWORD=kale" --env="MYSQL_DATABASE=inv" mysql:8.0.15 --default-authentication-plugin=mysql_native_password
+
+# docker rm -f $(docker ps -aq) # removes all containers
+
+# docker rm -f cid #remove specific container
+
+## Links the two containers and run django container with mysql
+
+docker run -t --name=student --link docker-mysql:mysql -p 10555:8000 student
+
+docker run -t --name=invoice -d --link docker-mysql:mysql -p 10500:8000 invoice_app
+
+docker run -d -t --name=student-app --link docker-mysql:mysql -p 10555:8000 kalegajanan/pythonapps:1.1
+
+
+## For migrate mysql data
+
+docker exec -it invoice python manage.py migrate
+
+# to enter inside the container
+
+docker exec -it <container_name> bash or sh
+
+# to enter inside the container
+
+docker exec -it invoice bash or sh
+
+
+root@9fc48750a602:~# la -a
+
+bash: la: command not found
+
+root@9fc48750a602:~# ls -a
+
+.  ..  .bashrc  .cache  .profile  .wget-hsts
+
+root@9fc48750a602:~# cd /home/
+
+root@9fc48750a602:/home# ls
+
+root@9fc48750a602:/home# ls
+
+root@9fc48750a602:/home# cd /invoice_apps/
+
+root@9fc48750a602:/invoice_apps# ls
+
+Dockerfile  README.md  app1  detail_inv  manage.py  requirements.txt
+
+root@9fc48750a602:/invoice_apps#
+
+docker exec -it my_container_name /bin/bash
+exit
+# to check running containers
+
+docker ps
+
+# docker images 
+
+docker images
+

@@ -1,0 +1,54 @@
+In the AWS Management Console, go to the EC2 service.
+
+Launch an Instance:
+Click on "Instances" in the EC2 Dashboard, and then click the "Launch Instance" button.
+
+Choose an Amazon Machine Image (AMI):
+Select an Ubuntu AMI from the available options. You can use the search bar to find the latest Ubuntu AMI.
+## or choose ubuntu free tieer
+
+Choose an Instance Type:
+Select the instance type based on your requirements. You can choose a t2.micro or any other instance type that suits your needs.
+
+Configure Instance:
+
+Number of Instances: You can specify how many instances you want to launch.
+Network: Select your preferred VPC (Virtual Private Cloud).
+Subnet: Choose a subnet within the selected VPC.
+Auto-assign Public IP: If you want your instance to have a public IP, make sure this is set to "Enable."
+Add Storage:
+You can configure the size and type of storage for your instance. The default settings are usually sufficient for a basic setup.
+
+Add Tags (Optional):
+You can add tags to help you organize your instances for management.
+
+##Configure Security Group:
+
+Create a new security group or select an existing one.
+In the security group, open the ports that you want to access. For example, to open SSH (port 22), click "Add Rule," select "SSH" in the dropdown, and set the source to "My IP" if you want to allow SSH access from your IP address. To open additional ports for other services, add rules accordingly.
+Review and Launch:
+Review the configuration settings for your instance. Make sure everything is set up as desired.
+
+Launch:
+Click the "Launch" button to start the instance creation process.
+
+Create a Key Pair (if needed):
+If you don't have an existing key pair, you'll be prompted to create one. Download the key pair and keep it in a safe location. You'll need it to SSH into your instance.
+
+Launch Instance:
+After creating or selecting a key pair, click the "Launch Instances" button.
+
+View Instances:
+You'll be taken back to the EC2 Dashboard. Click on "Instances" to view the status of your newly created instance.
+
+Connect to the Instance:
+Use an SSH client to connect to your instance using the key pair you downloaded. For example, you can use the following command:
+
+bash
+Copy code
+ssh -i path-to-your-key.pem ubuntu@public-ip
+Replace path-to-your-key.pem with the path to your key pair file and public-ip with the public IP address of your EC2 instance.
+
+Access Opened Ports:
+You can now access the services running on the opened ports, such as SSH on port 22. Make sure to secure your instance and services with appropriate configurations and firewall rules.
+That's it! You've launched an Ubuntu machine on EC2 and opened the necessary ports for access. Make sure to follow security best practices to protect your instance.
