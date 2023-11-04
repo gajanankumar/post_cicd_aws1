@@ -21,7 +21,8 @@ jobs:
         run: pip install -r requirements.txt
         working-directory: .
       - name: make migration
-        run: python manage.py makemigrations
+        run: |
+             python manage.py makemigrations
              python manage.py migrate
              
       - name: Apply Migrations to a Specific Database
