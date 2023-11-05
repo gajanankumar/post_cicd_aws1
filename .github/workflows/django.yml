@@ -17,9 +17,9 @@ jobs:
 
     services:
       mysql:
-        image: mysql:latest
+        image: docker-mysql:latest
         env:
-          MYSQL_ROOT_PASSWORD: MYSQL_ROOT_PASSWORD
+          #MYSQL_ROOT_PASSWORD: MYSQL_ROOT_PASSWORD
           #MYSQL_USER: root
           MYSQL_PASSWORD: kale
           MYSQL_DATABASE: inv
