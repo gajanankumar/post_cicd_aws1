@@ -16,7 +16,7 @@ jobs:
         python-version: [3.9]
 
     services:
-      mysql:
+      localhost:
         image: mysql:latest
         env:
           MYSQL_ROOT_PASSWORD: kale
